@@ -32,12 +32,7 @@ function startMyTama(e) {
         
     }
 
-    console.log(myTamagotchi.getHungerLevel());
-    console.log(myTamagotchi.hungerDrain());
-    console.log(myTamagotchi.happinessDrain());
-
-        
-    
+   
 
     function playTama() {
         myTamagotchi.play();
@@ -49,12 +44,35 @@ function startMyTama(e) {
     myTamagotchi.retartGame();    
 
     
+    if (TamaType === "Dog") {
+        const img = document.createElement('img');
+        img.id = "bild";
+        document.body.append(img);
+        const imgUrl = new URL('./img/dog.png', import.meta.url);
+        img.src = imgUrl.href;
+        img.width = 300;
+        img.style.marginLeft = '700px';
+    }
+    else if (TamaType === "Cow") {
+        const img = document.createElement('img');
+        img.id = "bild";
+        document.body.append(img);
+        const imgUrl = new URL('./img/cow.png', import.meta.url);
+        img.src = imgUrl.href;
+        img.width = 300;
+        img.style.marginLeft = '700px';
+    }
+    else if(TamaType === "Horse"){
+        const img = document.createElement('img');
+        img.id = "bild";
+        document.body.append(img);
+        const imgUrl = new URL('./img/horse.png', import.meta.url);
+        img.src = imgUrl.href;
+        img.width = 300;
+        img.style.marginLeft = '700px';
+    
+    }
 
 
 
 }
-
-
-
-
-

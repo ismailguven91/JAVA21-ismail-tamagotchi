@@ -25,33 +25,46 @@ export class Tamagotchi {
   }
 
   hungerDrain() {
-    setInterval(() => {
+    const update = setInterval(() => {
       if (this.#hungerLevel < 10) {
         this.#hungerLevel += 1;
         document.querySelector("#pHunger").innerText = this.#hungerLevel;
+        if(this.#hungerLevel === 8){
+          const img = document.getElementById('bild');
+        document.body.append(img);
+        const imgUrl2 = new URL('../img/cow.png', import.meta.url);
+        img.src = imgUrl2.href;
+        img.width = 300;
+        img.style.marginLeft = '700px';
+        }
       }
-      if (this.#hungerLevel == 10) {
-        var okToRefresh = confirm("Tama died because he was unhappy! PRESS OK TO PLAY AGAIN");
-      if (okToRefresh)
-	{
-			setTimeout("location.reload(true);",1500);
-	}
+      else if (this.#hungerLevel == 10) {
+        clearInterval(update);
+
+        const refresh = confirm("Tamagotchi has died");
+        location.reload(true)
       }
     }, 3000);
   }
 
   happinessDrain() {
-    setInterval(() => {
+    const update2 = setInterval(() => {
       if (this.#happinessLevel > 0) {
         this.#happinessLevel -= 1;
-        document.querySelector("#pHappy").innerText = this.#happinessLevel;
+        document.querySelector("#pHappy").innerText = this.#happinessLevel
+        if(this.#happinessLevel === 2){
+          const img = document.getElementById('bild');
+        document.body.append(img);
+        const imgUrl2 = new URL('../img/cow.png', import.meta.url);
+        img.src = imgUrl2.href;
+        img.width = 300;
+        img.style.marginLeft = '700px';
+        }
       }
-      if (this.#happinessLevel == 0) {
-        var okToRefresh = confirm("Tama died of starving! PRESS OK TO PLAY AGAIN");
-      if (okToRefresh)
-	{
-			setTimeout("location.reload(true);",1500);
-	}
+      else if (this.#happinessLevel == 0) {
+        clearInterval(update2);
+        const refresh = confirm("Tamagotchi has died");
+        location.reload(true)
       }
     }, 3000);
   }
